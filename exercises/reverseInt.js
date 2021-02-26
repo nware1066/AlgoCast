@@ -25,8 +25,6 @@ function reverseInt(n) {}
 
     return parseInt(reversed) * Math.sign(n);
 
-module.exports = reverseInt;
-
 // important to know ( or look for integer functions in MDN) toString, Math.sign, parseInt
 // There is usually a tool in MDN for most common methods of manipulating data
 //
