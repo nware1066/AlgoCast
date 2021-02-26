@@ -20,4 +20,4 @@ function maxChar(string) {
 }
 
 
-module.exports = maxChar;
+
