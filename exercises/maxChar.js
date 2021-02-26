@@ -7,17 +7,30 @@
 
 function maxChar(string) {
 
-  const result = {}
+  const charMap = {};
+  let max = 0;
+  let maxChar = '';
 
   for (let char of string) {
-    if (!result[char]) {
-      result[char] = 1;
+    if (!charMap[char]) {
+      charMap[char] = 1;
     } else {
-      result[char]++
+      charMap[char]++
     }
   }
-  return result;
+
+  // use for in loop when iterating over contents of an object
+
+  for ( let char in charMap ) {
+    if (charMap[char] > max ) {
+      max = charMap[char];
+      maxChar = char;
+    }
+  }
+  console.log(maxChar);
+  return maxChar;
 }
 
 
 module.exports = maxChar;
+
