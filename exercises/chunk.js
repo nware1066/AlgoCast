@@ -23,3 +23,17 @@ function chunk(array, size) {
     }
     return result;
 }
+
+
+
+function chunk(array, size) {
+    // create new array, use slice prototype to grab target elements and push into new array, target elements are determined by the size argument
+    const result = [];
+    let index = 0;
+
+    while ( index < array.length) {
+        result.push(array.slice( index, index + size));
+        index += size; 
+    }
+    return result;
+}
