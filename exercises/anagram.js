@@ -8,30 +8,45 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+// function anagrams(stringA, stringB) {
+//     // use regex to eleminate spaces and symbols
+//     // use toLowerCase to eliminate case sensitivity issues
+//     // create character map of each string, if the two maps match exactly, they are anagrams
+//     const charMapA = buildCharMap(stringA);
+//     const charMapB = buildCharMap(stringB);
+
+//     if ( Object.keys(charMapA).length !== Object.keys(charMapB).length) {
+//         return false;
+//         } 
+//             for ( let char in charMapA ) {
+//                 if (charMapA[char] !== charMapB[char]) {
+//                     return false;
+//                 }
+//             }
+//         return true;
+//     }
+
+// function buildCharMap(string) {
+//     // create helper function to build character map to avoid redundant code
+//     const charMap = {};
+
+//     for ( let char of string.replace(/[^\w]/g, '').toLowerCase()) {
+//         charMap[char] = charMap[char] + 1 || 1;
+//     }
+//     return charMap;
+// }
+
 function anagrams(stringA, stringB) {
-    // use regex to eleminate spaces and symbols
-    // use toLowerCase to eliminate case sensitivity issues
-    // create character map of each string, if the two maps match exactly, they are anagrams
-    const charMapA = buildCharMap(stringA);
-    const charMapB = buildCharMap(stringB);
+  const firstString = cleanString(stringA);
+  const secondString = cleanString(stringB);
 
-    if ( Object.keys(charMapA).length !== Object.keys(charMapB).length) {
-        return false;
-        } 
-            for ( let char in charMapA ) {
-                if (charMapA[char] !== charMapB[char]) {
-                    return false;
-                }
-            }
-        return true;
-    }
+  if (firstString !== secondString) {
+      return false;
+  }
 
-function buildCharMap(string) {
-    // create helper function to build character map to avoid redundant code
-    const charMap = {};
+  return true;
+}
 
-    for ( let char of string.replace(/[^\w]/g, '').toLowerCase()) {
-        charMap[char] = charMap[char] + 1 || 1;
-    }
-    return charMap;
+function cleanString(string) {
+    return string.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 }
