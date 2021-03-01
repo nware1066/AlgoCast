@@ -17,23 +17,42 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-    // create a series of rows (strings) equal to the argument
-    // add one hash to the first string and increment upwards through all the strings
-    // any spaces not filled with hashes should be empty spaces
-    // console log each row
+// function steps(n) {
+//     // create a series of rows (strings) equal to the argument
+//     // add one hash to the first string and increment upwards through all the strings
+//     // any spaces not filled with hashes should be empty spaces
+//     // console log each row
 
-    for (let i = 0; i < n; i++) {
-        let stair = '';
+//     for (let i = 0; i < n; i++) {
+//         let stair = '';
 
-    for (let j = 0; j < n; j++) {
-        if (j <= i) {
-            stair += '#';
-        }else {
-            stair += ' ';
-        }
+//     for (let j = 0; j < n; j++) {
+//         if (j <= i) {
+//             stair += '#';
+//         }else {
+//             stair += ' ';
+//         }
+//     }
+//     console.log(stair)
+
+//     }
+// }
+
+function steps(n, row = 0, stair = '') {
+    if (n === row) {
+        return;
+    } 
+
+    if (n === stair.length ) {
+        console.log(stair);
+        steps(n, row + 1);
+        return;
     }
-    console.log(stair)
 
+    if ( stair.length <= row) {
+        stair += '#';
+    } else {
+        stair += ' ';
     }
+    steps(n, row, stair)
 }
