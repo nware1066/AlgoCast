@@ -17,3 +17,8 @@
 //     }
 //     return result;
 // }
+
+function vowels(str) {
+ const matches = str.match(/[aeiou]/gi);
+ returnmatches ? matches.length : 0;
+}
