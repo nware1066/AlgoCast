@@ -36,3 +36,37 @@ function fib(n) {
     } 
     return fib(n - 1) + fib(n - 2)
 }
+
+
+    // the runtime issue could be resolved with 'memoization' which means that the function stores the results of each argument and if the function is called again with the same arguments, it uses the stored result instead of invoking the function again
+    // here is the recursive result with memoization
+    // create a function that takes in the original function as an argument
+    // within the new function, create a variable with the value of an empty object
+    // return the argument function and use the spread operator to accept whatever arguments get passed as an array of arguments ( this is housekeeping, since there is no way of knowing how many arguments might be passed when the argument function is invoked)
+    //  if the object variable already has those the arguments being passed, just return the object, but if it does not, create a new variable using the apply prototype on the function ( function.apply(this, args) ) and assign those arguments to the object variable. That sounds confusing, but the code below should clear things up.
+
+function memoize(fn) {
+    const cache = {};
+    return function(...args) {
+        if (cache[args]) {
+            return cache[args];
+        }
+
+        const result = fn.apply(this, args);
+        cache[args] = result;
+
+        return result;
+    };
+}
+
+
+
+function slowFib(n) {
+    if (n < 2) {
+        return n;
+    } 
+    return fib(n - 1) + fib(n - 2)
+};
+
+
+const fib = memoize(slowFib);
