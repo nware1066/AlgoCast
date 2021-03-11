@@ -21,4 +21,8 @@ class Queue {
     remove(record) {
         return this.data.pop();
     }
+
+     peek() {
+   return this.data[this.data.length -1]
+  }
 }
