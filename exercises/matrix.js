@@ -29,7 +29,7 @@ function matrix(n) {
 
     while (startColumn <= endColumn && startRow <= endRow) {
         // Top Row
-        for ( let i = startColumn; i <= endColumn; i++) {
+        for (let i = startColumn; i <= endColumn; i++) {
             results[startRow][i] = counter;
             counter++;
         }
@@ -42,7 +42,7 @@ function matrix(n) {
         
         endColumn--
         // Bottom Row
-        for ( let i = endColumn; i >= startColumn; i--) {
+        for (let i = endColumn; i >= startColumn; i--) {
             results[endRow][i] = counter;
             counter++;
         } 
